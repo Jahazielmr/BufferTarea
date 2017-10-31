@@ -47,8 +47,9 @@ int main(){
  						if (n[i]=='|')
  						{
  							p.setNombre(aux);
- 							acum++;
  							aux="";
+                            acum++;
+                            
  						}else{
  							aux+=n[i];
  						}
@@ -61,8 +62,9 @@ int main(){
  						if (n[i]=='|')
  						{
  							p.setApellido(aux);
- 							acum++;
  							aux="";
+                            acum++;
+                            
  						}else{
  							aux+=n[i];
  						}
@@ -76,8 +78,9 @@ int main(){
  						if (n[i]=='|')
  						{
  							p.setDireccion(aux);
- 							acum++;
  							aux="";
+                            acum++;
+                            
  						}else{
  							aux+=n[i];
  						}
@@ -90,8 +93,9 @@ int main(){
  						if (n[i]=='|')
  						{
  							p.setTelefono(aux);
- 							acum++;
  							aux="";
+                            acum++;
+                            
  						}else{
  							aux+=n[i];
  						}
@@ -105,7 +109,7 @@ int main(){
  						{
  							int numTemporal = atoi(aux.c_str());
  							p.setEdad(numTemporal);
- 							acum=0;
+ 							acum++;
  							aux="";
  							personas.push_back(p);
  						}else{
@@ -114,9 +118,6 @@ int main(){
  						
 
  					}	
-
-
-
 
 
 
@@ -129,7 +130,7 @@ int main(){
         
          for (int i = 0; i < personas.size(); ++i)
          {
-         	cout<< personas[i].getNombre()<<endl;
+         	cout<< personas[i].getNombre()<<" " <<personas[i].getApellido()<<personas[i].getDireccion()<<personas[i].getEdad()<<endl;
          }
 
 
