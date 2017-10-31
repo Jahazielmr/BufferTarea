@@ -1,45 +1,132 @@
 #include <string>
 #include <sstream>
 #include <fstream> 	
+#include <iostream>
+#include <vector>
+#include "Persona.h"
 #include "Buffert.h"
 
 using namespace std;
 
-Buffert::Buffer (char Delim = '|', int maxBtytes = 1000){
-	short len; // length of string to be packed
-	if (size >= 0) len = size;
-	else len = strlen (str);
-	if (len > strlen(str)) return FALSE; // str is too short!
-	int start = NextByte; // first character to be packed
-	NextByte += len + 1;
-	if (NextByte > MaxBytes) return FALSE;
-	memcpy (&Buffer[start], str, len); //copy block of memory
-	Buffer [start+len] = Delim; // add delimeter
-	BufferSize = NextByte;
-	return TRUE;
 
-}
+vector<Persona*> Buffert::Read(ifstream & fin){
+		
+		vector <Persona> personas;
+	    
+        fin.open("Jugadores.txt");
+        
+        if(fin.fail()){
+            cout << "ERROR!! - archivo no encontrado";
+            exit(1);
+        }
+        
+        //leer linea
+        char buffer[1000];
+        
+        string bufferAux;
 
-int Buffert::Unpack(char *str){
-	int len = -1;	// length of packed string
-	int start = NextByte; // first character to be unpacked
-	for(int i = start; i < BufferSize; i++)
-		if(Buffer[i] == Delim) {len = i-start; break;}
-	if(len == -1) return FALSE;	// delimiter not found
-	NextByte += len + 1;
-	if(NextByte > BufferSize) return FALSE;
-	strncpy (str, &Buffer[start], len);
-	str[len] = 0;	// zero termination for string
-	return TRUE;
-}
+        //Buffer b;
+        string n;
 
-int Buffert::Read(istream & stream){
-	Clear();
-	stream.read((char *)&BufferSize, sizeof(BufferSize));
-	if (Stream.fail()) return FALSE;
-	if (BufferSize > MaxBytes) return FALSE; // buffer overflow
-	stream.read(Buffer, BufferSize);
-	return stream.good();
+         while(!fin.eof()) {
+ 			
+ 			Persona * persona;
+
+            int acum=0;
+            
+
+ 			getline(fin, n);
+        	
+ 			bufferAux = n;
+	       	string aux;
+	       	Persona p;
+ 			for (int i = 0; i < n.size(); ++i){
+ 				
+ 				if (acum==0)
+ 					{
+ 						if (n[i]=='|')
+ 						{
+ 							p.setNombre(aux);
+ 							aux="";
+                            acum++;
+                            
+ 						}else{
+ 							aux+=n[i];
+ 						}
+ 						
+
+ 					} else
+
+ 				if (acum==1)
+ 					{
+ 						if (n[i]=='|')
+ 						{
+ 							p.setApellido(aux);
+ 							aux="";
+                            acum++;
+                            
+ 						}else{
+ 							aux+=n[i];
+ 						}
+ 						
+
+ 					} else
+
+
+ 				if (acum==2)
+ 					{
+ 						if (n[i]=='|')
+ 						{
+ 							p.setDireccion(aux);
+ 							aux="";
+                            acum++;
+                            
+ 						}else{
+ 							aux+=n[i];
+ 						}
+ 						
+
+ 					} else
+
+ 				if (acum==3)
+ 					{
+ 						if (n[i]=='|')
+ 						{
+ 							p.setTelefono(aux);
+ 							aux="";
+                            acum++;
+                            
+ 						}else{
+ 							aux+=n[i];
+ 						}
+ 						
+
+ 					} else
+
+ 				if (acum==4)
+ 					{
+ 						if (n[i]=='|')
+ 						{
+ 							p.setEdad(aux);
+ 							aux="";
+                            acum++;
+                            
+ 							personas.push_back(p);
+ 						}else{
+ 							aux+=n[i];
+ 						}
+ 						
+
+ 					}else{
+
+                    }	
+
+ 			}
+
+
+         }
+
+
 }
 
 int Buffert:: Write (Persona p) 
@@ -51,38 +138,6 @@ int Buffert:: Write (Persona p)
 	ofs.close();
 	return 0;
 }
-
-int Buffert:: Init (char delim, int maxBytes)
- // construct with a maximum of maxFields
-{
-	Delim = delim;
-	DelimStr[0] = Delim;
-	DelimStr[1] = 0;
-	if (maxBytes < 0) maxBytes = 0;
-	MaxBytes = maxBytes;
-	Buffer = new char[MaxBytes];
-	BufferSize = 0;
-	return 1;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
