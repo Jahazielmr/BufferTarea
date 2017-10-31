@@ -16,11 +16,11 @@ public:
 	string apellido;
 	string direccion;
 	string telefono;
-	int edad;
+	string edad;
 
 public:
 	Persona();
-	Persona(string,string,string,string,int);
+	Persona(string,string,string,string,string);
 
 	string getNombre();
 	void setNombre(string);
@@ -34,8 +34,8 @@ public:
 	string getTelefono();
 	void setTelefono(string);
 
-	int getEdad();
-	void setEdad(int);
+	string getEdad();
+	void setEdad(string);
 };
 
 #endif

@@ -6,7 +6,7 @@ Persona::Persona(){
 
 }
 
-Persona::Persona(string nombre, string apellido, string direccion, string telefono, int edad){
+Persona::Persona(string nombre, string apellido, string direccion, string telefono, string edad){
 	this->nombre = nombre;
 	this->apellido = apellido;
 	this->direccion = direccion;
@@ -47,11 +47,11 @@ void Persona::setTelefono(string telefono){
 	this->telefono=telefono;
 }
 
-int Persona::getEdad(){
+string Persona::getEdad(){
 	return edad;
 }
 
-void Persona::setEdad(int edad){
+void Persona::setEdad(string edad){
 	this->edad=edad;
 }
 

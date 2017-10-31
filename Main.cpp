@@ -109,13 +109,13 @@ int main(){
  					{
  						if (n[i]=='|')
  						{
- 							int numTemporal = atoi(aux.c_str());
- 							p.setEdad(numTemporal);
- 							acum++;
+ 							p.setEdad(aux);
  							aux="";
+                            acum++;
+                            
  							personas.push_back(p);
  						}else{
- 							aux+=""+n[i];
+ 							aux+=n[i];
  						}
  						
 
@@ -134,7 +134,7 @@ int main(){
         
          for (int i = 0; i < personas.size(); ++i)
          {
-         	cout<< "Nombre "<<personas[i].getNombre()<<" "<<"Apellido " <<personas[i].getApellido()<<" "<<"Direccion "<<personas[i].getDireccion()<<"Edad "<<personas[i].getEdad()<<" Telefono "<<personas[i].getTelefono()<<endl;
+         	cout<< "Nombre "<<personas[i].getNombre()<<" "<<"Apellido " <<personas[i].getApellido()<<" "<<"Direccion "<<personas[i].getDireccion()<<" Edad "<<personas[i].getEdad()<<" Telefono "<<personas[i].getTelefono()<<endl;
          }
 
 
