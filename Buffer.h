@@ -1,4 +1,5 @@
 #include <vector>
+#include "Persona.h"
 
 using namespace std;
 
@@ -11,7 +12,7 @@ public:
 
 	Buffers (char Delim = '|', int maxBtytes = 1000);
 	int Read(istream & file);
-	int Write (ostream & file) ;
+	int static Write (Persona p);
 	int Pack(const char * str, int size = -1);
 	int Unpack(char * str);
  private:

@@ -136,7 +136,7 @@ int Buffert:: Write (Persona p)
 	stringstream ss;
 	ofstream ofs;
 	ofs.open("jugadores.txt");
-	ofs<<p.getNombre()<<"|"<<p.getApellido<<"|"<<p.getDireccion<<"|"<<p.getTelefono<<"|"<<p.getEdad()<<"|\n";
+	ofs<<p.getNombre()<<"|"<<p.getApellido()<<"|"<<p.getDireccion()<<"|"<<p.getTelefono()<<"|"<<p.getEdad()<<"|\n";
 	ofs.close();
 	return 0;
 }
