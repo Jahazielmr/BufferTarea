@@ -34,10 +34,12 @@ int main(){
  			
  			Persona * persona;
 
+            int acum=0;
+            
+
  			getline(fin, n);
         	
  			bufferAux = n;
-	       	int acum=0;
 	       	string aux;
 	       	Persona p;
  			for (int i = 0; i < n.size(); ++i){
@@ -55,7 +57,7 @@ int main(){
  						}
  						
 
- 					}
+ 					} else
 
  				if (acum==1)
  					{
@@ -70,7 +72,7 @@ int main(){
  						}
  						
 
- 					}	
+ 					} else
 
 
  				if (acum==2)
@@ -86,7 +88,7 @@ int main(){
  						}
  						
 
- 					}	
+ 					} else
 
  				if (acum==3)
  					{
@@ -101,7 +103,7 @@ int main(){
  						}
  						
 
- 					}	
+ 					} else
 
  				if (acum==4)
  					{
@@ -117,7 +119,9 @@ int main(){
  						}
  						
 
- 					}	
+ 					}else{
+
+                    }	
 
 
 
@@ -130,7 +134,7 @@ int main(){
         
          for (int i = 0; i < personas.size(); ++i)
          {
-         	cout<< personas[i].getNombre()<<" " <<personas[i].getApellido()<<personas[i].getDireccion()<<personas[i].getEdad()<<endl;
+         	cout<< "Nombre "<<personas[i].getNombre()<<" "<<"Apellido " <<personas[i].getApellido()<<" "<<"Direccion "<<personas[i].getDireccion()<<"Edad "<<personas[i].getEdad()<<" Telefono "<<personas[i].getTelefono()<<endl;
          }
 
 
