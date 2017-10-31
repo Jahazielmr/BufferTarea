@@ -1,4 +1,6 @@
 #include <string>
+#include <sstream>
+#include <fstream> 	
 #include "Buffert.h"
 
 using namespace std;
@@ -40,11 +42,14 @@ int Buffert::Read(istream & stream){
 	return stream.good();
 }
 
-int Buffert:: Write (ostream & stream) const
+int Buffert:: Write (Persona p) 
 {
-	stream . write ((char*)&BufferSize, sizeof(BufferSize));
-	stream . write (Buffer, BufferSize);
-	return stream . good ();
+	stringstream ss;
+	ofstream ofs;
+	ofs.open("jugadores.txt");
+	ofs<<p.getNombre()<<"|"<<p.getApellido<<"|"<<p.getDireccion<<"|"<<p.getTelefono<<"|"<<p.getEdad()<<"|\n";
+	ofs.close();
+	return 0;
 }
 
 int Buffert:: Init (char delim, int maxBytes)
