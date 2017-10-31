@@ -52,6 +52,7 @@ int Buffert:: Write (Persona p)
 	return 0;
 }
 
+
 int Buffert:: Init (char delim, int maxBytes)
  // construct with a maximum of maxFields
 {
