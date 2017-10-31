@@ -40,61 +40,84 @@ int main(){
 	       	int acum=0;
 	       	string aux;
 	       	Persona p;
-	       	string aux2;
-	       	
- 			for (int i = 0; i < bufferAux.size(); ++i){
+ 			for (int i = 0; i < n.size(); ++i){
  				
- 				if(n[i]!= '|' && acum ==0){
+ 				if (acum==0)
+ 					{
+ 						if (n[i]=='|')
+ 						{
+ 							p.setNombre(aux);
+ 							acum++;
+ 							aux="";
+ 						}else{
+ 							aux+=n[i];
+ 						}
+ 						
 
- 					aux2 += n[i];
+ 					}
 
- 				} else{
+ 				if (acum==1)
+ 					{
+ 						if (n[i]=='|')
+ 						{
+ 							p.setApellido(aux);
+ 							acum++;
+ 							aux="";
+ 						}else{
+ 							aux+=n[i];
+ 						}
+ 						
 
- 					p.setNombre(aux2);
- 					acum++;
- 				}
+ 					}	
 
-				if(n[i]!= '|' && acum ==1){
 
- 					aux2 += n[i];
+ 				if (acum==2)
+ 					{
+ 						if (n[i]=='|')
+ 						{
+ 							p.setDireccion(aux);
+ 							acum++;
+ 							aux="";
+ 						}else{
+ 							aux+=n[i];
+ 						}
+ 						
 
- 				} else{
+ 					}	
 
- 					p.setApellido(aux2);
- 					acum++;
- 				}
+ 				if (acum==3)
+ 					{
+ 						if (n[i]=='|')
+ 						{
+ 							p.setTelefono(aux);
+ 							acum++;
+ 							aux="";
+ 						}else{
+ 							aux+=n[i];
+ 						}
+ 						
 
- 				if(n[i]!= '|' && acum ==2){
+ 					}	
 
- 					aux2 += n[i];
+ 				if (acum==4)
+ 					{
+ 						if (n[i]=='|')
+ 						{
+ 							int numTemporal = atoi(aux.c_str());
+ 							p.setEdad(numTemporal);
+ 							acum=0;
+ 							aux="";
+ 							personas.push_back(p);
+ 						}else{
+ 							aux+=""+n[i];
+ 						}
+ 						
 
- 				} else{
+ 					}	
 
- 					p.setDireccion(aux2);
- 					acum++;
- 				}
 
- 				
- 				if(n[i]!= '|' && acum ==3){
 
- 					aux2 += n[i];
 
- 				} else{
-
- 					p.setTelefono(aux2);
- 					acum++;
- 				}
-
- 				if(n[i]!= '|' && acum ==4){
-
- 					aux2 += n[i];
-
- 				} else{
-
- 					int numTemporal = atoi(aux.c_str());
- 					p.setEdad(numTemporal);
- 					acum++;
- 				}
 
 
  			}
@@ -106,10 +129,10 @@ int main(){
         
          for (int i = 0; i < personas.size(); ++i)
          {
-         	cout<< personas[i].getNombre()<<personas[i].getApellido()<<endl;
+         	cout<< personas[i].getNombre()<<endl;
          }
 
-         cout<< "No sirve"<<endl;
+
         
         
         fin.close();
