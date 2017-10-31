@@ -9,7 +9,7 @@
 using namespace std;
 
 
-vector<Persona*> Buffert::Read(ifstream & fin){
+vector<Persona> Buffert::Read(ifstream  fin){
 		
 		vector <Persona> personas;
 	    
@@ -126,6 +126,8 @@ vector<Persona*> Buffert::Read(ifstream & fin){
 
          }
 
+         return personas;
+
 
 }
 
@@ -138,6 +140,16 @@ int Buffert:: Write (Persona p)
 	ofs.close();
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

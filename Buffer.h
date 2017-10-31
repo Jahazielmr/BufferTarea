@@ -11,7 +11,7 @@ public:
 
 	Buffers (char Delim = '|', int maxBtytes = 1000);
 	int Read(istream & file);
-	int Write (ostream & file) const;
+	int Write (ostream & file) ;
 	int Pack(const char * str, int size = -1);
 	int Unpack(char * str);
  private:

@@ -13,7 +13,7 @@ class Buffert{
 
 public:
 
-	vector<Persona*> Read(ifstream & fin);
+	vector<Persona> Read(ifstream & fin);
 	int Write (Persona p);
 	
  private:
